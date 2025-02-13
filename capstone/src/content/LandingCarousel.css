@@ -1,0 +1,36 @@
+.carousel .control-arrow {
+  background: none;
+  border: none;
+}
+
+.carousel .control-arrow:hover {
+  background: none;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid #fff;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid #fff;
+}
+
+.break-words {
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInFromBottom {
+  animation: slideInFromBottom 1s ease-in-out forwards;
+}
