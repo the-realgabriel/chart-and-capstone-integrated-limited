@@ -9,11 +9,9 @@ function App() {
   return (
     <>
     <Router>
-      <Switch>
         <Route path="/" element={<Landing/>} />
-        <Route path="/About" element={<About/>} />
-        <Route path="/Govern" element={<Govern/>} />    
-      </Switch>
+        <Route path="/about" element={<About/>} />
+        <Route path="/govern" element={<Govern/>} />    
     </Router>
     
     </>
