@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from './content/landing';
 import About from './content/about';
 import Govern from './content/govern';
@@ -9,9 +9,12 @@ function App() {
   return (
     <>
     <Router>
-        <Route path="/" element={<Landing/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/govern" element={<Govern/>} />    
+      <Routes>
+         <Route path="/" element={<Landing/>} />
+         <Route path="/about" element={<About/>} />
+          <Route path="/govern" element={<Govern/>} />  
+      </Routes>
+  
     </Router>
     
     </>
