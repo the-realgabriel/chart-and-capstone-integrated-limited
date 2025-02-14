@@ -1,3 +1,4 @@
+
 import interior from "../images/interior-view-steel-factory.jpg"
 import { motion } from "framer-motion";
 
@@ -47,3 +48,4 @@ export default function About() {
         </div>
       );
     };
+
