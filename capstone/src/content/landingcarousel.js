@@ -1,10 +1,20 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./LandingCarousel.css";
 
 export default function LandingCarousel() {
   const carouselRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -16,65 +26,137 @@ export default function LandingCarousel() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
-    <Carousel
-      ref={carouselRef}
-      showThumbs={false}
-      autoPlay
-      infiniteLoop
-      showArrows
-      showStatus={false}
-    >
-      <div className="relative h-screen">
-        <img
-          src="/carousel1.png"
-          alt="Slide 1"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-start text-white p-8">
-          <h2 className="text-7xl font-bold break-words transition-transform duration-1000 ease-in-out transform translate-y-full animate-slideInFromBottom">
-            GROWING BEYOND EXPECTATION
-          </h2>
-          {/* <div className="">
-            <a
-              href="./home.html"
-              className="bg-green-400 py-2 px-2 rounded-md text-white text-xs "
+    <div className="relative">
+      <Carousel
+        ref={carouselRef}
+        showThumbs={false}
+        autoPlay
+        infiniteLoop
+        showArrows={!isMobile}
+        showStatus={false}
+        swipeable={true}
+        emulateTouch={true}
+        interval={5000}
+        stopOnHover={true}
+        className="carousel-container"
+      >
+        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen">
+          <img
+            src="/carousel1.jpg"
+            alt="Slide 1"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent">
+            <div className="h-full flex flex-col items-start justify-center p-4 sm:p-6 md:p-8 lg:p-12">
+              <div className="flex flex-col">
+                <h2
+                  className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-white  
+                             animate-fadeIn text-shadow-lg text-left"
+                >
+                  Innovation in Energy
+                </h2>
+                <p
+                  className="text-lg sm:text-xl md:text-2xl text-white mt-2 md:mt-4 
+                             animate-fadeIn text-shadow-md opacity-90 text-left"
+                >
+                  Pioneering sustainable solutions for tomorrow's energy needs
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen">
+          <img
+            src="/carousel2.jpg"
+            alt="Slide 2"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent">
+            <div className="h-full flex flex-col items-start justify-center p-4 sm:p-6 md:p-8 lg:p-12">
+              <div className="flex flex-col">
+                <h2
+                  className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-white  
+                             animate-fadeIn text-shadow-lg text-left"
+                >
+                  Solid Minerals
+                </h2>
+                <p
+                  className="text-lg sm:text-xl md:text-2xl text-white mt-2 md:mt-4 
+                             animate-fadeIn text-shadow-md opacity-90 text-left"
+                >
+                  Sustainable extraction and responsible resource management
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen">
+          <img
+            src="/carousel3.jpg"
+            alt="Slide 3"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent">
+            <div className="h-full flex flex-col items-start justify-center p-4 sm:p-6 md:p-8 lg:p-12">
+              <div className="flex flex-col">
+                <h2
+                  className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-white  
+                             animate-fadeIn text-shadow-lg text-left"
+                >
+                  Nutritional Growth
+                </h2>
+                <p
+                  className="text-lg sm:text-xl md:text-2xl text-white mt-2 md:mt-4 
+                             animate-fadeIn text-shadow-md opacity-90 text-left"
+                >
+                  Supporting agricultural development for food security
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Carousel>
+
+      <div className="absolute bottom-8 right-8 z-50">
+        <div className="group relative">
+          <button
+            className="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-lg 
+                     border border-white/20 hover:bg-white/20 transition-all duration-300
+                     flex items-center space-x-2"
+          >
+            <span>Find Us</span>
+          </button>
+
+          <div
+            className="absolute bottom-full right-0 mb-2 w-64 
+                        opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <div
+              className="bg-white/10 backdrop-blur-md text-white p-4 rounded-lg 
+                          border border-white/20 shadow-xl"
             >
-              Contact Us
-            </a>
-          </div> */}
+              <h3 className="font-semibold text-lg mb-2">Company Address</h3>
+              <p className="text-sm opacity-90">
+                No. 49, Effurun-Sapele Road
+                <br />
+                Warri,
+                <br />
+                Delta State, Nigeria
+                <span className="mt-2 block">+234 803 313 3440 <br/> +234 916 024 4807</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="relative h-screen">
-        <img
-          src="/carousel2.png"
-          alt="Slide 2"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-start text-white p-8">
-          <h2 className="text-7xl font-bold break-words transition-transform duration-1000 ease-in-out transform translate-y-full animate-slideInFromBottom">
-            GROWING BEYOND EXPECTATION
-          </h2>
-        </div>
-      </div>
-      <div className="relative h-screen">
-        <img
-          src="/image3.png"
-          alt="Slide 3"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-start text-white p-8">
-          <h2 className="text-7xl font-bold break-words transition-transform duration-1000 ease-in-out transform translate-y-full animate-slideInFromBottom">
-            GROWING BEYOND EXPECTATION
-          </h2>
-        </div>
-      </div>
-    </Carousel>
+    </div>
   );
 }
