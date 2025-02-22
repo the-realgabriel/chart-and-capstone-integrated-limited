@@ -1,0 +1,82 @@
+.carousel .control-arrow {
+  background: none !important;
+  border: none !important;
+  opacity: 0.8 !important;
+  padding: 1rem !important;
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.2) !important;
+  opacity: 1 !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 12px solid #fff !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 12px solid #fff !important;
+}
+
+.carousel-container {
+  touch-action: pan-y pinch-zoom;
+}
+
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInFromBottom {
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  .carousel .control-arrow {
+    padding: 0.5rem !important;
+  }
+  
+  .carousel .control-prev.control-arrow:before,
+  .carousel .control-next.control-arrow:before {
+    border-width: 8px !important;
+  }
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
