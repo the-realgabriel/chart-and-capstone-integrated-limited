@@ -1,19 +1,14 @@
 
 import interior from "../images/interior-view-steel-factory.jpg"
 import { motion } from "framer-motion";
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 export default function About() {
     return (
         <div className="bg-gray-100 text-gray-900">
           
-          <nav className="bg-black text-white flex justify-between items-center p-4">
-            <motion.h1 className="text-xl font-bold" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>Behavy</motion.h1>
-            <ul className="hidden md:flex space-x-6">
-              <li>About Us</li>
-              <li>Corporate Governance</li>
-            </ul>
-            <motion.button className="bg-green-500 px-4 py-2 rounded" whileHover={{ scale: 1.1 }}>Contact Us</motion.button>
-          </nav>
+        <Navbar />
           
          
           <header className="relative text-white text-center py-32 bg-cover bg-center" style={{backgroundImage: "url('/hero-image.jpg')"}}>
@@ -41,10 +36,7 @@ export default function About() {
           
          
           
-         
-          <footer className="bg-black text-white p-8 text-center">
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>&copy; 2024 Behavy. All Rights Reserved.</motion.p>
-          </footer>
+            <Footer/>
         </div>
       );
     };

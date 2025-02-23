@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-20 bg-white p-1 md:px-12 border-b-[1px] border-gray-200 w-full shadow-sm">
       <div className="container mx-auto">
         <div className="flex justify-between items-center p-2">
-          <div className="logo text-lg font-bold text-gray-800">CCL</div>
+          <Link to="/">
+          <div className="logo text-lg font-bold text-gray-800">CCL</div></Link>
           
           <button 
             onClick={toggleMenu} 

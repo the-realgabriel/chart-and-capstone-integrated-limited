@@ -1,10 +1,10 @@
-import Nav from "../nav/nav";
+import Navbar from "./navbar";
 import { motion } from "framer-motion";
 
 export default function Govern() {
     return (
         <div>
-            <Nav/>
+            <Navbar />
             <header className="relative text-white text-center py-32 bg-cover bg-center" style={{backgroundImage: "url('/hero-image.jpg')"}}>
             <motion.h2 className="text-4xl font-bold" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }}>GROWING BEYOND</motion.h2>
             <motion.h3 className="text-4xl font-bold bg-red-500 px-2 inline-block" initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>EXPECTATION</motion.h3>
